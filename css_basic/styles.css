@@ -6,9 +6,7 @@
 }
 
 
-/* ===========================
-   FLEXBOX LAYOUT (REQUIRED)
-=========================== */
+
 /* Make the whole page a vertical flex container */
 body {
     display: flex;
@@ -54,10 +52,6 @@ aside {
     font-style: italic;
 }
 
-
-/* ===========================
-   HEADER + FOOTER STYLING
-=========================== */
 header, footer {
     padding: 10px;
     background-color: #f2f2f2;
@@ -123,9 +117,6 @@ footer a {
 }
 
 
-/* ===========================
-   ARTICLE HEADINGS
-=========================== */
 article h1,
 article h2,
 article h3 {
