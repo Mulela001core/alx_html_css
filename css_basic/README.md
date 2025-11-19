@@ -10,19 +10,6 @@ Contents
  - `base.css` — Base styles and resets used across the practice pages.
  - `styles.css` — Page-specific styles for `index.html` and `tweets.html`.
 
-How to view
- - Open the folder in a browser by double-clicking `index.html` or `tweets.html`.
- - Or run a simple HTTP server from the `css_basic` directory:
-
-	PowerShell:
-
-	```powershell
-	cd path\to\alx_html_css\css_basic;
-	python -m http.server 8000
-	```
-
-	Then open `http://localhost:8000/index.html` in your browser.
-
 Notes
  - Files are intentionally small and focused for learning CSS fundamentals.
  - Edit the CSS files and refresh the browser to see changes immediately.
