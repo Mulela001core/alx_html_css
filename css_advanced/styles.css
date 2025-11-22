@@ -507,6 +507,7 @@ footer p {
     opacity: 0.8;
 }
 
+
 @media (max-width: 768px) {
     nav ul {
         gap: 20px;
@@ -800,4 +801,284 @@ footer > section > div {
 
 .footer-right i:hover {
     color: #c355f5;
+}
+
+
+
+
+:root{
+  --purple: #C271FF;
+  --deep: #0b1020;
+  --muted: rgba(255,255,255,0.75);
+  --glass: rgba(255,255,255,0.06);
+  --container: 1100px;
+}
+
+/* Basic reset */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: #ffffff;
+  color: #fff;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.4;
+}
+
+/* Simple centered container */
+.container{
+  width: min(var(--container), 92%);
+  margin: 0 auto;
+}
+
+/* TOP NAV */
+.top-nav{
+  position: fixed;
+  top: 18px;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  pointer-events: none; /* allow only inner anchors to be interactive */
+}
+.top-nav .container{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  pointer-events: auto;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+  font-size:18px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.06), transparent);
+  padding:8px 12px;
+  border-radius:8px;
+}
+.brand-icon{font-size:18px}
+.nav a{
+  color:#fff;
+  margin-left:28px;
+  text-decoration:none;
+  font-weight:600;
+  letter-spacing:0.6px;
+  opacity:0.95;
+}
+
+/* HERO */
+.hero{
+  position:relative;
+  height:92vh;
+  min-height:680px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+/* background image */
+.hero-bg{
+  position:absolute;
+  inset:0;
+  background-size:cover;
+  background-position:center 20%;
+  filter:grayscale(8%) contrast(0.98) brightness(0.85);
+  transform: scale(1.02);
+  will-change: transform;
+}
+
+/* dark gradient overlay to match screenshot */
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  background: linear-gradient(180deg, rgba(10,10,10,0.15) 0%, rgba(6,6,10,0.7) 65%, rgba(6,6,10,0.85) 100%);
+}
+
+/* content inside hero */
+.hero-content{
+  position:relative;
+  z-index:10;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:18px;
+  padding-top:28px;
+}
+
+/* big title */
+.hero-title{
+  font-size:88px;
+  line-height:0.95;
+  letter-spacing:-1px;
+  font-weight:800;
+  text-transform: none;
+  color:#fff;
+  text-shadow: 0 4px 30px rgba(0,0,0,0.6);
+  margin-top:10px;
+}
+
+/* tags under title */
+.hero-tags{
+  display:flex;
+  gap:18px;
+  color:var(--muted);
+  font-weight:600;
+  letter-spacing:2px;
+  font-size:13px;
+}
+
+/* CTA */
+.btn-primary{
+  margin-top:6px;
+  background: linear-gradient(180deg, #D292FF 0%, var(--purple) 100%);
+  color: #fff;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 28px;
+  font-weight:700;
+  letter-spacing:0.6px;
+  cursor:pointer;
+  box-shadow: 0 8px 28px rgba(194,113,255,0.18);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.btn-primary:hover{ transform: translateY(-4px); box-shadow: 0 18px 38px rgba(194,113,255,0.26); }
+
+/* LEARN FROM THE PROS SECTION */
+.pros{
+  background: linear-gradient(180deg, rgba(6,6,15,0.95), rgba(7,7,15,0.98));
+  padding:64px 0 48px;
+  text-align:center;
+}
+
+/* title */
+.pros-title{
+  color: var(--purple);
+  font-size:26px;
+  margin-bottom:28px;
+  font-weight:700;
+  opacity:0.98;
+  transform: translateY(12px);
+  transition: all .6s ease;
+  opacity:0; /* will reveal */
+}
+.pros-title.show{ transform: translateY(0); opacity:1; }
+
+/* cards container */
+.pro-cards{
+  display:flex;
+  justify-content:center;
+  gap:60px;
+  list-style:none;
+  padding: 18px 6px 6px;
+  flex-wrap:wrap;
+}
+
+/* single pro */
+.pro{
+  width:200px;
+  text-align:center;
+  opacity:0;
+  transform: translateY(18px) scale(.99);
+  transition: all .6s cubic-bezier(.2,.9,.2,1);
+}
+.pro.show{ opacity:1; transform: translateY(0) scale(1); }
+
+/* avatar */
+.pro img{
+  width:130px;
+  height:130px;
+  border-radius:50%;
+  object-fit:cover;
+  display:block;
+  margin: 0 auto 12px;
+  border:6px solid rgba(255,255,255,0.06);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.45);
+}
+.pro h3{
+  font-size:16px;
+  margin-bottom:6px;
+  color:#fff;
+}
+.muted{
+  color: rgba(255,255,255,0.7);
+  font-size:13px;
+}
+
+/* TESTIMONIAL (purple band) */
+.testimonial{
+  background: var(--purple);
+  padding:56px 0 80px;
+  margin-top:28px;
+  color:#fff;
+}
+.testimonial-inner{
+  display:flex;
+  align-items:center;
+  gap:28px;
+  justify-content:flex-start;
+  width: min(920px, 94%);
+  margin: 0 auto;
+  flex-wrap:wrap;
+  text-align:left;
+  opacity:0;
+  transform:translateY(12px);
+  transition: all .6s ease;
+}
+.testimonial-inner.show{ opacity:1; transform:translateY(0); }
+
+.testimonial-avatar{
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  object-fit:cover;
+  border:6px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.06);
+}
+.testimonial blockquote{
+  font-size:18px;
+  line-height:1.5;
+  margin-bottom:6px;
+  color: #fff;
+}
+.testi-author{ font-weight:700; }
+
+/* FOOTER */
+.site-footer{
+  padding:28px 0;
+  background: #0b0e18;
+  text-align:center;
+  color: rgba(255,255,255,0.65);
+  font-size:14px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 980px){
+  .hero-title{ font-size:64px }
+  .pro-cards{ gap:28px }
+  .container{ width:94% }
+}
+
+@media (max-width: 720px){
+  .top-nav .container{ padding:0 6px }
+  .nav a{ margin-left:18px; font-size:14px }
+  .hero{ min-height:640px; height:84vh }
+  .hero-title{ font-size:44px; }
+  .hero-tags{ gap:10px; font-size:12px }
+  .pro-cards{ gap:18px; justify-content:center }
+  .pro{ width:160px; }
+  .testimonial-inner{ flex-direction:column; align-items:center; text-align:center }
+  .testimonial blockquote{ font-size:16px }
+  .testimonial-avatar{ width:100px; height:100px }
+}
+
+/* Small phones */
+@media (max-width:420px){
+  .hero-title{ font-size:34px; line-height:1.05 }
+  .btn-primary{ padding:10px 18px }
+  .pro img{ width:110px;height:110px }
 }
